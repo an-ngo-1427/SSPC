@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "3D+jslef1sKIFBK4JjMmk/PI7upsulfUum8rM4RGkI0=",
+  "Source": "URL_shortener",
+  "BasePath": "_content/URL_shortener",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

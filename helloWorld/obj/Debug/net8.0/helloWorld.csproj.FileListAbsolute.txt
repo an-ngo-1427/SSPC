@@ -1,0 +1,17 @@
+/Users/anngo/SSPC/helloWorld/bin/Debug/net8.0/helloWorld
+/Users/anngo/SSPC/helloWorld/bin/Debug/net8.0/helloWorld.deps.json
+/Users/anngo/SSPC/helloWorld/bin/Debug/net8.0/helloWorld.runtimeconfig.json
+/Users/anngo/SSPC/helloWorld/bin/Debug/net8.0/helloWorld.dll
+/Users/anngo/SSPC/helloWorld/bin/Debug/net8.0/helloWorld.pdb
+/Users/anngo/SSPC/helloWorld/obj/Debug/net8.0/helloWorld.GeneratedMSBuildEditorConfig.editorconfig
+/Users/anngo/SSPC/helloWorld/obj/Debug/net8.0/helloWorld.AssemblyInfoInputs.cache
+/Users/anngo/SSPC/helloWorld/obj/Debug/net8.0/helloWorld.AssemblyInfo.cs
+/Users/anngo/SSPC/helloWorld/obj/Debug/net8.0/helloWorld.csproj.CoreCompileInputs.cache
+/Users/anngo/SSPC/helloWorld/obj/Debug/net8.0/helloWorld.dll
+/Users/anngo/SSPC/helloWorld/obj/Debug/net8.0/refint/helloWorld.dll
+/Users/anngo/SSPC/helloWorld/obj/Debug/net8.0/helloWorld.pdb
+/Users/anngo/SSPC/helloWorld/obj/Debug/net8.0/helloWorld.genruntimeconfig.cache
+/Users/anngo/SSPC/helloWorld/obj/Debug/net8.0/ref/helloWorld.dll
+/Users/anngo/SSPC/helloWorld/bin/Debug/net8.0/NameGenerator.dll
+/Users/anngo/SSPC/helloWorld/obj/Debug/net8.0/helloWorld.csproj.AssemblyReference.cache
+/Users/anngo/SSPC/helloWorld/obj/Debug/net8.0/helloWorld.csproj.Up2Date

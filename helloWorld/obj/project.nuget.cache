@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "gDEX+VOwrG4=",
+  "success": true,
+  "projectFilePath": "/Users/anngo/SSPC/helloWorld/helloWorld.csproj",
+  "expectedPackageFiles": [
+    "/Users/anngo/.nuget/packages/namegenerator/2.0.4/namegenerator.2.0.4.nupkg.sha512",
+    "/Users/anngo/.nuget/packages/system.text.json/5.0.1/system.text.json.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
