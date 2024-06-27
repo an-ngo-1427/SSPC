@@ -1,0 +1,15 @@
+/Users/anngo/SSPC/LinkedList/LinkedList/bin/Debug/net8.0/LinkedList
+/Users/anngo/SSPC/LinkedList/LinkedList/bin/Debug/net8.0/LinkedList.deps.json
+/Users/anngo/SSPC/LinkedList/LinkedList/bin/Debug/net8.0/LinkedList.runtimeconfig.json
+/Users/anngo/SSPC/LinkedList/LinkedList/bin/Debug/net8.0/LinkedList.dll
+/Users/anngo/SSPC/LinkedList/LinkedList/bin/Debug/net8.0/LinkedList.pdb
+/Users/anngo/SSPC/LinkedList/LinkedList/obj/Debug/net8.0/LinkedList.GeneratedMSBuildEditorConfig.editorconfig
+/Users/anngo/SSPC/LinkedList/LinkedList/obj/Debug/net8.0/LinkedList.AssemblyInfoInputs.cache
+/Users/anngo/SSPC/LinkedList/LinkedList/obj/Debug/net8.0/LinkedList.AssemblyInfo.cs
+/Users/anngo/SSPC/LinkedList/LinkedList/obj/Debug/net8.0/LinkedList.csproj.CoreCompileInputs.cache
+/Users/anngo/SSPC/LinkedList/LinkedList/obj/Debug/net8.0/LinkedList.sourcelink.json
+/Users/anngo/SSPC/LinkedList/LinkedList/obj/Debug/net8.0/LinkedList.dll
+/Users/anngo/SSPC/LinkedList/LinkedList/obj/Debug/net8.0/refint/LinkedList.dll
+/Users/anngo/SSPC/LinkedList/LinkedList/obj/Debug/net8.0/LinkedList.pdb
+/Users/anngo/SSPC/LinkedList/LinkedList/obj/Debug/net8.0/LinkedList.genruntimeconfig.cache
+/Users/anngo/SSPC/LinkedList/LinkedList/obj/Debug/net8.0/ref/LinkedList.dll
