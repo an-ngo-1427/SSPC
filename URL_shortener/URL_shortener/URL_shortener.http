@@ -1,6 +1,38 @@
 @URL_shortener_HostAddress = http://localhost:5114
 
-GET {{URL_shortener_HostAddress}}/weatherforecast/
+
+
+GET {{URL_shortener_HostAddress}}/shorturls/url1
+
+###
+# API: Create or update short url
+# This call should return a string "http://localhost:5097/navigate/ge123"
+PUT {{URL_shortener_HostAddress}}/shortUrls/url1
+Accept: application/json
+Content-Type: application/json
+
+{
+    "url": "http://www.google.com/longurl"
+}
+
+###
+
+# API: delete short url
+# This call should return empty body
+DELETE {{URL_shortener_HostAddress}}/shortUrls/url1
+Accept: application/json
+
+
+###
+
+# API: Get number of hits
+# this call should return an integer
+GET {{URL_shortener_HostAddress}}/shortUrls/url1/hits
 Accept: application/json
 
 ###
+# API: navigate to shortUrl
+# this call should redirect the user to www.google.com
+# for how to do that, check https://stackoverflow.com/questions/52308563/redirect-to-url-in-asp-net-core
+GET {{URL_shortener_HostAddress}}/navigate/ge123
+Accept: application/json

@@ -23,3 +23,4 @@
 /Users/anngo/SSPC/URL_shortener/URL_shortener/obj/Debug/net8.0/URL_shortener.pdb
 /Users/anngo/SSPC/URL_shortener/URL_shortener/obj/Debug/net8.0/URL_shortener.genruntimeconfig.cache
 /Users/anngo/SSPC/URL_shortener/URL_shortener/obj/Debug/net8.0/ref/URL_shortener.dll
+/Users/anngo/SSPC/URL_shortener/URL_shortener/obj/Debug/net8.0/URL_shortener.sourcelink.json
