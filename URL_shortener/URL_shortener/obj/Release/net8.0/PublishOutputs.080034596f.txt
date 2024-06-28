@@ -1,0 +1,7 @@
+/Users/anngo/SSPC/URL_shortener/bin/Publish/URL_shortener
+/Users/anngo/SSPC/URL_shortener/bin/Publish/appsettings.Development.json
+/Users/anngo/SSPC/URL_shortener/bin/Publish/appsettings.json
+/Users/anngo/SSPC/URL_shortener/bin/Publish/URL_shortener.dll
+/Users/anngo/SSPC/URL_shortener/bin/Publish/URL_shortener.deps.json
+/Users/anngo/SSPC/URL_shortener/bin/Publish/URL_shortener.runtimeconfig.json
+/Users/anngo/SSPC/URL_shortener/bin/Publish/URL_shortener.pdb
