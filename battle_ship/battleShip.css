@@ -25,3 +25,14 @@ body{
 .clicked{
     background-color: blue;
 }
+
+.ship-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.blue{
+    background-color: blue;
+
+}
