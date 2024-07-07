@@ -3,19 +3,50 @@ const shipCont = document.createElement('div');
 shipCont.className = 'ship-container';
 function dragstartHandler(ev) {
     // Add the target element's id to the data transfer object
-    ev.dataTransfer.setData("text/plain", ev.target.className);
+    dragged = ev.target;
     ev.dataTransfer.effectAllowed = "move";
-  }
+    ev.width = '100px';
+}
 function dragoverHandler(ev) {
     ev.preventDefault();
-    ev.dataTransfer.dropEffect = "move";
+}
+
+function dropHandler(ev) {
+
+  // Get the id of the target and add the moved element to the target's DOM
+
+  ev.preventDefault();
+  let selectedBoxes = [];
+  let curr = ev.target;
+
+  if(dragged.classList.contains('horizontal')){
+    for(let i=0;i<dragged.children.length;i++){
+      if(curr == null || curr.children.length || curr.classList.contains('blue')){
+        selectedBoxes = [];
+        break;
+      }
+      console.log(curr);
+      selectedBoxes.push(curr);
+      curr = curr.nextSibling;
+    }
+
+  }else if(dragged.classList.contains('vertical')){
+
+    const verticalIdx = Array.prototype.indexOf.call(ev.target.parentNode.children,ev.target);
+    let currRow = ev.target.parentNode;
+    for(let i=0;i<dragged.children.length;i++){
+      if(currRow == null || currRow.children[verticalIdx].children.length || currRow.children[verticalIdx].classList.contains('blue')){
+        selectedBoxes = [];
+        break;
+      }
+      selectedBoxes.push(currRow.children[verticalIdx]);
+      currRow = currRow.nextSibling;
+    }
   }
-  function dropHandler(ev) {
-    ev.preventDefault();
-    // Get the id of the target and add the moved element to the target's DOM
-    const data = ev.dataTransfer.getData("text/plain");
-    ev.target.className = data;
-  }
+
+  selectedBoxes.forEach(ele=>ele.appendChild(dragged.children[0]))
+
+}
 
 // player board
 const self_field = document.createElement('div');
@@ -31,13 +62,27 @@ const body = document.querySelector('body');
 body.append(shipCont,self_field,op_field);
 
 // adding drag and drop elements
-const smallShip = document.createElement('div');
-smallShip.draggable = 'true';
-smallShip.className = 'blue box';
-smallShip.ondragstart = dragstartHandler;
-shipCont.append(smallShip);
+const smallShip1 = drawShips('vertical',2);
+const smallShip2 = drawShips('vertical',3);
+const smallShip3 = drawShips('horizontal',2);
+const smallShip4 = drawShips('horizontal',3);
+shipCont.ondragstart = dragstartHandler;
+shipCont.append(smallShip1,smallShip2,smallShip3,smallShip4);
 
 
+
+// creating dragable ships helper
+function drawShips(orientation,eleNums){
+  const newShip = document.createElement('div');
+  newShip.className = `ship ${orientation}`;
+  newShip.draggable = 'true';
+  for (let i=0;i<eleNums;i++){
+    const newBox = document.createElement('div');
+    newBox.className = 'blue box';
+    newShip.appendChild(newBox);
+  }
+  return newShip;
+}
 
 function drawBoard(element,numRows,numCols){
     // drawing coordinates row
@@ -47,8 +92,7 @@ function drawBoard(element,numRows,numCols){
         const newBox = document.createElement('div')
         newBox.className = 'box'
         i>0? newBox.innerText = i : ""
-        newBox.style.border = 'none'
-
+        newBox.style.border = 'none';
         coorRow.appendChild(newBox)
     }
 
@@ -60,14 +104,11 @@ function drawBoard(element,numRows,numCols){
         row.className = 'row'
         for (let j=0;j<numCols;j++){
             const newBox = document.createElement('div');
-            newBox.className = 'box'
+            newBox.className = 'box';
             if(j==0){
                 newBox.innerText = String.fromCharCode(64+i)
                 newBox.style.border='none'
             }
-            // newBox.addEventListener('click',(e)=>{
-            //     e.target.style.background = 'blue'
-            // })
             newBox.ondrop = dropHandler;
             newBox.ondragover = dragoverHandler;
             row.appendChild(newBox)
