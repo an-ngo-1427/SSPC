@@ -48,6 +48,12 @@ function dropHandler(ev) {
 
 }
 
+function compPlay(){
+
+
+
+}
+
 // player board
 const self_field = document.createElement('div');
 self_field.className = 'self-field';
@@ -62,14 +68,18 @@ const body = document.querySelector('body');
 body.append(shipCont,self_field,op_field);
 
 // adding drag and drop elements
+// players ships
 const smallShip1 = drawShips('vertical',2);
 const smallShip2 = drawShips('vertical',3);
 const smallShip3 = drawShips('horizontal',2);
 const smallShip4 = drawShips('horizontal',3);
+
+// comp ships
 shipCont.ondragstart = dragstartHandler;
 shipCont.append(smallShip1,smallShip2,smallShip3,smallShip4);
+// shipCont1.append(smallShip5,smallShip6,smallShip7,smallShip8);
 
-
+compPlay();
 
 // creating dragable ships helper
 function drawShips(orientation,eleNums){
