@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 namespace URL_shortener.Controllers;
 
-
+[Authorize(AuthenticationSchemes = $"{JwtBearerDefaults.AuthenticationScheme},BasicAuthentication")]
 [ApiController]
 [Route("[controller]")]
 [Route("")]
 public class ShortUrlsController : ControllerBase{
+    [Authorize(Policy = "GenerateReports")]
     [HttpGet]
     [Route("{url1}")]
     public string Get([FromRoute] string url1){
