@@ -8,7 +8,8 @@ namespace URL_shortener.Controllers;
 [Route("[controller]")]
 [Route("")]
 public class ShortUrlsController : ControllerBase{
-    [Authorize(Policy = "GenerateReports")]
+    // [Authorize(Policy = "GenerateReports")]
+    [Authorize]
     [HttpGet]
     [Route("{url1}")]
     public string Get([FromRoute] string url1){

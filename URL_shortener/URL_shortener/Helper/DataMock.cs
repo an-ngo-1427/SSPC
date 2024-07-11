@@ -19,7 +19,8 @@ public class DataMock
         new User { FirstName = "Katherine", LastName = "Clark", Email = "katherine.clark@example.com", Password = "secure567", PasswordSalt = "1b4f8h8b-0a4b-4c9b-b7a5-6e20c4d7b3aa", Roles = ["Space Cowboy"] },
         new User { FirstName = "Liam", LastName = "Lewis", Email = "liam.lewis@example.com", Password = "password890", PasswordSalt = "2c5f9i9b-0b3b-4d8b-b6a5-6a21c3b7a4ee", Roles = ["Supreme Overlord"] },
         new User { FirstName = "Mia", LastName = "Moore", Email = "mia.moore@example.com", Password = "pass8901", PasswordSalt = "3d6f0j0b-0c2b-4e7b-b5a5-6c22c2b7b1ff", Roles = ["Chief Happiness Officer"] },
-        new User { FirstName = "Salam", LastName = "Morcos", Email = "salam.morcos+testspsd@gmail.com", Password = "oauth2.0", PasswordSalt = "n/a", Roles = ["Deacon"] }
+        new User { FirstName = "Salam", LastName = "Morcos", Email = "salam.morcos+testspsd@gmail.com", Password = "oauth2.0", PasswordSalt = "n/a", Roles = ["Deacon"] },
+        new User { FirstName = "An", LastName = "Ngo", Email = "anng0149+test2@gmail.com", Password = "@Password123", PasswordSalt = "n/a", Roles = ["Grand Wizard"] }
     ];
 
     public static readonly List<string> Roles =
