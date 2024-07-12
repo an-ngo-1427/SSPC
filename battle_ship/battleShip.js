@@ -5,7 +5,13 @@ function dragstartHandler(ev) {
     // Add the target element's id to the data transfer object
     dragged = ev.target;
     ev.dataTransfer.effectAllowed = "move";
-    ev.width = '100px';
+    const dataObj = JSON.stringify({
+      "offsetX":ev.offsetX,
+      "offsetY":ev.offsetY
+    })
+    ev.dataTransfer.setData('dataObj',dataObj)
+
+
 }
 function dragoverHandler(ev) {
     ev.preventDefault();
@@ -14,26 +20,35 @@ function dragoverHandler(ev) {
 function dropHandler(ev) {
 
   // Get the id of the target and add the moved element to the target's DOM
+  const data = JSON.parse(ev.dataTransfer.getData('dataObj'));
 
   ev.preventDefault();
   let selectedBoxes = [];
-  let curr = ev.target;
+  let curr;
 
   if(dragged.classList.contains('horizontal')){
+    const boxWidth = dragged.children[0].offsetWidth;
+    if(data.offsetX<boxWidth) curr = ev.target;
+    else if(data.offsetX < 2 * boxWidth) curr = ev.target.previousSibling;
+    else curr = ev.target?.previousSibling?.previousSibling;
+
     for(let i=0;i<dragged.children.length;i++){
       if(curr == null || curr.children.length || curr.classList.contains('blue')){
         selectedBoxes = [];
         break;
       }
-      console.log(curr);
       selectedBoxes.push(curr);
       curr = curr.nextSibling;
     }
 
   }else if(dragged.classList.contains('vertical')){
-
+    const boxHeigth = dragged.children[0].offsetHeight;
     const verticalIdx = Array.prototype.indexOf.call(ev.target.parentNode.children,ev.target);
-    let currRow = ev.target.parentNode;
+    let currRow;
+    if(data.offsetY < boxHeigth) currRow = ev.target.parentNode;
+    else if(data.offsetY < boxHeigth * 2) currRow = ev.target.parentNode.previousSibling;
+    else currRow = ev.target.parentNode.previousSibling?.previousSibling;
+
     for(let i=0;i<dragged.children.length;i++){
       if(currRow == null || currRow.children[verticalIdx].children.length || currRow.children[verticalIdx].classList.contains('blue')){
         selectedBoxes = [];
