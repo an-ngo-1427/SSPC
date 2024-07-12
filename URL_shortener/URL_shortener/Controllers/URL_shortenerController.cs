@@ -8,12 +8,11 @@ namespace URL_shortener.Controllers;
 [Route("[controller]")]
 [Route("")]
 public class ShortUrlsController : ControllerBase{
-    // [Authorize(Policy = "GenerateReports")]
     [Authorize]
     [HttpGet]
     [Route("{url1}")]
     public string Get([FromRoute] string url1){
-        Console.WriteLine(url1);
+        Console.WriteLine(User.Identity);
         return "http://localhost:5097/navigate/ge123";
     }
 

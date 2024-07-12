@@ -1,14 +1,21 @@
+using System.Diagnostics;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using UrlShortner.Helper;
+using UrlShortner.Models;
 using UrlShortner.Security;
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
 namespace UrlShortner;
 
 public class Program
 {
     public static void Main(string[] args)
     {
+        hashPassword();
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddControllers();
@@ -17,7 +24,6 @@ public class Program
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         })
-
         .AddJwtBearer(options =>
         {
             options.Authority = builder.Configuration["AzureAdB2C:Authority"];
@@ -47,6 +53,7 @@ public class Program
             }
         });
 
+
         builder.Services.AddTransient<IClaimsTransformation, ClaimsTransformation>();
 
         var app = builder.Build();
@@ -58,5 +65,15 @@ public class Program
         app.MapControllers();
 
         app.Run();
+    }
+
+    public static void hashPassword(){
+        SHA256 mySHA256 = SHA256.Create();
+        DataMock.Users.ForEach(user=>{
+            string passString = user.Password + user.PasswordSalt;
+            byte[] hashedPassword =  mySHA256.ComputeHash(Encoding.UTF8.GetBytes(passString));
+            user.hashedPassword = Convert.ToBase64String(hashedPassword);
+            Console.WriteLine(user.hashedPassword);
+        });
     }
 }

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
 using System.Net.Http.Headers;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Encodings.Web;
 using UrlShortner.Helper;
@@ -24,9 +25,14 @@ public class BasicAuthenticationHandler(
             var email = credentials[0];
             var password = credentials[1];
 
+            var user = DataMock.Users.FirstOrDefault(user => user.Email!.Equals(email, StringComparison.OrdinalIgnoreCase));
 
-            if (DataMock.Users.Any(user => user.Email!.Equals(email, StringComparison.OrdinalIgnoreCase)
-                                        && user.Password == password))
+            if (user == null)
+            {
+                return AuthenticateResult.Fail("Invalid Authorization Header");
+            }
+
+            if (hashPassword(password, user.PasswordSalt) == user.hashedPassword)
             {
                 var claims = new[] { new Claim("emails", email) };
                 var identity = new ClaimsIdentity(claims, Scheme.Name);
@@ -44,6 +50,12 @@ public class BasicAuthenticationHandler(
         {
             return AuthenticateResult.Fail("Invalid Authorization Header");
         }
+    }
+    public static string hashPassword(string password, string salt){
+        SHA256 mySHA = SHA256.Create();
+        byte[] bytePass = Encoding.UTF8.GetBytes(password + salt);
+        byte[] hashedPass = mySHA.ComputeHash(bytePass);
+        return Convert.ToBase64String(hashedPass);
     }
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
 }

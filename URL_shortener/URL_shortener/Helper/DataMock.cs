@@ -23,6 +23,7 @@ public class DataMock
         new User { FirstName = "An", LastName = "Ngo", Email = "anng0149+test2@gmail.com", Password = "@Password123", PasswordSalt = "n/a", Roles = ["Grand Wizard"] }
     ];
 
+
     public static readonly List<string> Roles =
     [
         "Emperor",

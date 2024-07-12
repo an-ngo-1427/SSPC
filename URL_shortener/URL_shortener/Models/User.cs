@@ -8,4 +8,6 @@ public class User
     public string? Password { get; set; }
     public string? PasswordSalt { get; set; }
     public List<string> Roles { get; set; } = [];
+
+    public string? hashedPassword {get; set;}
 }
