@@ -1,6 +1,31 @@
 // ships container
 const shipCont = document.createElement('div');
 shipCont.className = 'ship-container';
+function handleClick(ev){
+  if(ev.target.classList.contains('selected')){
+    ev.target.style.backgroundColor = 'green'
+  }else{
+    ev.target.style.backgroundColor = 'red'
+  }
+  compClick();
+}
+
+function compClick(){
+  let compSelected;
+  do{
+    const rowCoor = Math.floor(Math.random() * (self_field.children.length - 1) +1);
+    const colCoor = Math.floor(Math.random() * (self_field.children[1].children.length - 1) + 1);
+    compSelected = self_field.children[rowCoor].children[colCoor];
+  }while(compSelected.classList.contains('clicked'));
+
+  if(compSelected.classList.contains('selected')){
+    compSelected.children[0].classList.remove('blue');
+    compSelected.children[0].classList.add('green');
+  }else{
+    compSelected.style.backgroundColor = 'red';
+  }
+  compSelected.classList.add('clicked');
+}
 function dragstartHandler(ev) {
     // Add the target element's id to the data transfer object
     dragged = ev.target;
@@ -11,7 +36,6 @@ function dragstartHandler(ev) {
     })
     ev.dataTransfer.setData('dataObj',dataObj)
 
-    console.log(dragged);
 }
 function dragoverHandler(ev) {
     ev.preventDefault();
@@ -59,7 +83,10 @@ function dropHandler(ev) {
     }
   }
 
-  selectedBoxes.forEach(ele=>ele.appendChild(dragged.children[0]))
+  selectedBoxes.forEach(ele=>{
+    ele.appendChild(dragged.children[0])
+    ele.classList.add('selected');
+  })
 
 }
 
@@ -132,6 +159,7 @@ function drawBoard(element,numRows,numCols){
       }
       newBox.ondrop = dropHandler;
       newBox.ondragover = dragoverHandler;
+      newBox.onclick = handleClick;
       row.appendChild(newBox)
     }
     element.appendChild(row)
@@ -144,7 +172,6 @@ function compPlay(){
   let count = 0;
   const fieldRow = op_field?.children?.length;
   const fieldCol = op_field?.children?.length;
-  console.log(fieldCol,fieldRow);
   while(count <= 3){
     const rowCoor = Math.floor(Math.random() * (fieldRow - 1) + 1);
     const colCoor = Math.floor(Math.random() * (fieldCol - 1) + 1);
@@ -153,7 +180,7 @@ function compPlay(){
     const shipLength = Math.floor(Math.random() * (4-2) + 2);
     let compCurr = op_field?.children[rowCoor]?.children[colCoor];
     if(compCurr.className == 'red') continue;
-    console.log(compCurr.className);
+
     let selectedBox = []
     for( let i=0;i<shipLength;i++){
 
@@ -163,17 +190,14 @@ function compPlay(){
       }
       selectedBox.push(compCurr)
       if(orientation == 'horizontal'){
-        console.log(compCurr,'horizontal')
         compCurr = compCurr.nextSibling;
       }else if(orientation == 'vertical'){
-        console.log(compCurr,'vertical')
         const currIdx = Array.prototype.indexOf.call(compCurr.parentNode.children,compCurr);
         compCurr = compCurr.parentNode.nextSibling? compCurr.parentNode.nextSibling.children[currIdx]:null;
       }
     }
-    console.log(selectedBox,shipLength)
     if(selectedBox.length == shipLength){
-      selectedBox.forEach(box=>box.classList.add('red'));
+      selectedBox.forEach(box=>box.classList.add('selected'));
       count++;
     }
   }

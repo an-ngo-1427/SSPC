@@ -52,3 +52,7 @@ body{
     display: flex;
     flex-direction: row;
 }
+
+.green{
+    background-color: green;
+}
