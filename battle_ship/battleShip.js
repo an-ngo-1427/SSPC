@@ -11,7 +11,7 @@ function dragstartHandler(ev) {
     })
     ev.dataTransfer.setData('dataObj',dataObj)
 
-
+    console.log(dragged);
 }
 function dragoverHandler(ev) {
     ev.preventDefault();
@@ -63,11 +63,6 @@ function dropHandler(ev) {
 
 }
 
-function compPlay(){
-
-
-
-}
 
 // player board
 const self_field = document.createElement('div');
@@ -90,11 +85,11 @@ const smallShip3 = drawShips('horizontal',2);
 const smallShip4 = drawShips('horizontal',3);
 
 // comp ships
-shipCont.ondragstart = dragstartHandler;
+// shipCont.ondragstart = dragstartHandler;
 shipCont.append(smallShip1,smallShip2,smallShip3,smallShip4);
 // shipCont1.append(smallShip5,smallShip6,smallShip7,smallShip8);
 
-compPlay();
+
 
 // creating dragable ships helper
 function drawShips(orientation,eleNums){
@@ -106,42 +101,82 @@ function drawShips(orientation,eleNums){
     newBox.className = 'blue box';
     newShip.appendChild(newBox);
   }
+  newShip.ondragstart = dragstartHandler;
   return newShip;
 }
 
 function drawBoard(element,numRows,numCols){
-    // drawing coordinates row
-    const coorRow = document.createElement('div')
-    coorRow.className = 'row'
-    for (let i=0;i<numCols;i++){
-        const newBox = document.createElement('div')
-        newBox.className = 'box'
-        i>0? newBox.innerText = i : ""
-        newBox.style.border = 'none';
-        coorRow.appendChild(newBox)
+  // drawing coordinates row
+  const coorRow = document.createElement('div')
+  coorRow.className = 'row'
+  for (let i=0;i<numCols;i++){
+    const newBox = document.createElement('div')
+    newBox.className = 'box'
+    i>0? newBox.innerText = i : ""
+    newBox.style.border = 'none';
+    coorRow.appendChild(newBox)
+  }
+
+  element.appendChild(coorRow)
+
+  // drawing main grid
+  for (let i=1;i<numRows;i++){
+    const row = document.createElement('div')
+    row.className = 'row'
+    for (let j=0;j<numCols;j++){
+      const newBox = document.createElement('div');
+      newBox.className = 'box';
+      if(j==0){
+        newBox.innerText = String.fromCharCode(64+i)
+        newBox.style.border='none'
+      }
+      newBox.ondrop = dropHandler;
+      newBox.ondragover = dragoverHandler;
+      row.appendChild(newBox)
     }
-
-    element.appendChild(coorRow)
-
-    // drawing main grid
-    for (let i=1;i<numRows;i++){
-        const row = document.createElement('div')
-        row.className = 'row'
-        for (let j=0;j<numCols;j++){
-            const newBox = document.createElement('div');
-            newBox.className = 'box';
-            if(j==0){
-                newBox.innerText = String.fromCharCode(64+i)
-                newBox.style.border='none'
-            }
-            newBox.ondrop = dropHandler;
-            newBox.ondragover = dragoverHandler;
-            row.appendChild(newBox)
-        }
-        element.appendChild(row)
-    }
+    element.appendChild(row)
+  }
 
 
-
-    return element
+  return element
 }
+function compPlay(){
+  let count = 0;
+  const fieldRow = op_field?.children?.length;
+  const fieldCol = op_field?.children?.length;
+  console.log(fieldCol,fieldRow);
+  while(count <= 3){
+    const rowCoor = Math.floor(Math.random() * (fieldRow - 1) + 1);
+    const colCoor = Math.floor(Math.random() * (fieldCol - 1) + 1);
+    const orientation = ['horizontal','vertical'][Math.floor(Math.random() * (2))];
+    // const orientation = 'vertical';
+    const shipLength = Math.floor(Math.random() * (4-2) + 2);
+    let compCurr = op_field?.children[rowCoor]?.children[colCoor];
+    if(compCurr.className == 'red') continue;
+    console.log(compCurr.className);
+    let selectedBox = []
+    for( let i=0;i<shipLength;i++){
+
+      if(compCurr == null){
+        selectedBox = [];
+        break;
+      }
+      selectedBox.push(compCurr)
+      if(orientation == 'horizontal'){
+        console.log(compCurr,'horizontal')
+        compCurr = compCurr.nextSibling;
+      }else if(orientation == 'vertical'){
+        console.log(compCurr,'vertical')
+        const currIdx = Array.prototype.indexOf.call(compCurr.parentNode.children,compCurr);
+        compCurr = compCurr.parentNode.nextSibling? compCurr.parentNode.nextSibling.children[currIdx]:null;
+      }
+    }
+    console.log(selectedBox,shipLength)
+    if(selectedBox.length == shipLength){
+      selectedBox.forEach(box=>box.classList.add('red'));
+      count++;
+    }
+  }
+
+}
+compPlay();
