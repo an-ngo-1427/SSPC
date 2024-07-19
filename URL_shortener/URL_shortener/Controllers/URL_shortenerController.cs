@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using URL_shortener.Models;
+using System.Text.Json;
 namespace URL_shortener.Controllers;
 
 [Authorize(AuthenticationSchemes = $"{JwtBearerDefaults.AuthenticationScheme},BasicAuthentication")]
@@ -8,17 +10,29 @@ namespace URL_shortener.Controllers;
 [Route("[controller]")]
 [Route("")]
 public class ShortUrlsController : ControllerBase{
+    private readonly UrlShortenerContext _context;
+    public ShortUrlsController(UrlShortenerContext _context){
+        _context = _context;
+    }
     [Authorize]
     [HttpGet]
-    [Route("{url1}")]
-    public string Get([FromRoute] string url1){
-        Console.WriteLine(User.Identity);
-        return "http://localhost:5097/navigate/ge123";
+    [Route("{id}")]
+    public string Get([FromRoute] string id){
+        Console.WriteLine("this is a user" + User.FindFirstValue(ClaimTypes.Role));
+        // Console.WriteLine(HttpContext.Current.User.Identity);
+        // var url = _context.Urls.FirstOrDefault(u=>String.Equals(u.UrlId,id));
+        return "testing1";
     }
 
     [HttpPut]
-    public string Create([FromBody] CreateUrlRequest data){
-;        return data.Url;
+    public string Create([FromBody] JsonElement data){
+        var domainName = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}";
+        Console.WriteLine(HttpContext.User);
+        Console.WriteLine(data);
+        Url newUrl = new(){
+
+        };
+        return "testing";
     }
 
     [HttpPut]

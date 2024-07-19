@@ -4,11 +4,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using UrlShortner.Helper;
-using UrlShortner.Models;
+using URL_shortener.Models;
 using UrlShortner.Security;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 namespace UrlShortner;
 
 public class Program
@@ -39,6 +40,7 @@ public class Program
             };
         })
         .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
         builder.Services.AddAuthorization(options =>
         {
             var permissionsByRoles = DataMock.RolesPermissionsMatrix
@@ -53,6 +55,8 @@ public class Program
             }
         });
 
+        builder.Services.AddDbContext<UrlShortenerContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
         builder.Services.AddTransient<IClaimsTransformation, ClaimsTransformation>();
 
@@ -73,7 +77,6 @@ public class Program
             string passString = user.Password + user.PasswordSalt;
             byte[] hashedPassword =  mySHA256.ComputeHash(Encoding.UTF8.GetBytes(passString));
             user.hashedPassword = Convert.ToBase64String(hashedPassword);
-            Console.WriteLine(user.hashedPassword);
         });
     }
 }
