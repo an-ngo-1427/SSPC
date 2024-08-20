@@ -1,0 +1,9 @@
+/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/bin/Debug/URL_Shortener_DB.dacpac
+/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/bin/Debug/URL_Shortener_DB.dll
+/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/bin/Debug/URL_Shortener_DB.pdb
+/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/obj/Debug/Model.xml
+/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/obj/Debug/refactor.xml
+/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/obj/Debug/postdeploy.sql
+/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/obj/Debug/predeploy.sql
+/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/obj/Debug/URL_Shortener_DB.dll
+/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/obj/Debug/URL_Shortener_DB.pdb

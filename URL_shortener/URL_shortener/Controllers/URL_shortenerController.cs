@@ -18,6 +18,8 @@ public class ShortUrlsController : ControllerBase
         _context = context;
     }
     [Authorize]
+    // [Route("/{id}")]
+    // [AllowAnonymous]
     [HttpGet("{id}")]
     public Url Get([FromRoute] string id)
     {
@@ -32,7 +34,7 @@ public class ShortUrlsController : ControllerBase
         }
     }
 
-    [Authorize]
+    // [Authorize]
     [HttpPut("{id}")]
 
     public string Put([FromBody] JsonElement body, [FromRoute] string id)
@@ -56,7 +58,7 @@ public class ShortUrlsController : ControllerBase
     }
 
     // [Route("url1")]
-    [Authorize]
+    // [Authorize]
     [HttpDelete]
     [Route("{id}")]
     public string Delete([FromRoute] string id)
@@ -73,7 +75,7 @@ public class ShortUrlsController : ControllerBase
 
         return "not found!";
     }
-    [Authorize]
+    // [Authorize]
     [Route("{url1}/hits")]
     [HttpGet]
     public int GetHits([FromRoute] string url1)
@@ -81,10 +83,11 @@ public class ShortUrlsController : ControllerBase
         return 4;
     }
     [AllowAnonymous]
-    [Route("{userShort}")]
+    [Route("/navigate/{userShort}")]
     [HttpGet]
     public RedirectResult Navigate(string userShort)
     {
+        Console.WriteLine("entered navigate route");
          var url = _context.Urls.SingleOrDefault(u => u.ShortenedUrl.Contains(userShort));
 
         return url == null ? Redirect("https://www.google.com") : Redirect(url.OriginalUrl);

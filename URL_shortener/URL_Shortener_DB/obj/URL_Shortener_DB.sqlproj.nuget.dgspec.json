@@ -1,0 +1,55 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/URL_Shortener_DB.sqlproj": {}
+  },
+  "projects": {
+    "/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/URL_Shortener_DB.sqlproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/URL_Shortener_DB.sqlproj",
+        "projectName": "URL_Shortener_DB",
+        "projectPath": "/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/URL_Shortener_DB.sqlproj",
+        "packagesPath": "/Users/anngo/.nuget/packages/",
+        "outputPath": "/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/obj/",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "/Users/anngo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net46"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net46": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "noWarn": [
+            "NU5128"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net46": {
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          }
+        }
+      }
+    }
+  }
+}

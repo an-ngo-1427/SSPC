@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ALwwUwLLU3A=",
+  "success": true,
+  "projectFilePath": "/Users/anngo/SSPC/URL_shortener/URL_Shortener_DB/URL_Shortener_DB.sqlproj",
+  "expectedPackageFiles": [
+    "/Users/anngo/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.0/microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "/Users/anngo/.nuget/packages/microsoft.netframework.referenceassemblies.net46/1.0.0/microsoft.netframework.referenceassemblies.net46.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

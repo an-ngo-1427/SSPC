@@ -1,0 +1,15 @@
+/Users/anngo/SSPC/debugging/debugging/bin/Debug/net8.0/debugging
+/Users/anngo/SSPC/debugging/debugging/bin/Debug/net8.0/debugging.deps.json
+/Users/anngo/SSPC/debugging/debugging/bin/Debug/net8.0/debugging.runtimeconfig.json
+/Users/anngo/SSPC/debugging/debugging/bin/Debug/net8.0/debugging.dll
+/Users/anngo/SSPC/debugging/debugging/bin/Debug/net8.0/debugging.pdb
+/Users/anngo/SSPC/debugging/debugging/obj/Debug/net8.0/debugging.GeneratedMSBuildEditorConfig.editorconfig
+/Users/anngo/SSPC/debugging/debugging/obj/Debug/net8.0/debugging.AssemblyInfoInputs.cache
+/Users/anngo/SSPC/debugging/debugging/obj/Debug/net8.0/debugging.AssemblyInfo.cs
+/Users/anngo/SSPC/debugging/debugging/obj/Debug/net8.0/debugging.csproj.CoreCompileInputs.cache
+/Users/anngo/SSPC/debugging/debugging/obj/Debug/net8.0/debugging.sourcelink.json
+/Users/anngo/SSPC/debugging/debugging/obj/Debug/net8.0/debugging.dll
+/Users/anngo/SSPC/debugging/debugging/obj/Debug/net8.0/refint/debugging.dll
+/Users/anngo/SSPC/debugging/debugging/obj/Debug/net8.0/debugging.pdb
+/Users/anngo/SSPC/debugging/debugging/obj/Debug/net8.0/debugging.genruntimeconfig.cache
+/Users/anngo/SSPC/debugging/debugging/obj/Debug/net8.0/ref/debugging.dll

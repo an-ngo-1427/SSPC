@@ -1,8 +1,8 @@
-@URL_shortener_HostAddress = urlshortenner123.azurewebsites.net
+@URL_shortener_HostAddress = http://localhost:5114
 
 
 
-GET {{URL_shortener_HostAddress}}/shorturls/url1
+GET {{URL_shortener_HostAddress}}/shorturls/1
 
 ###
 # API: Create or update short url
@@ -34,5 +34,5 @@ Accept: application/json
 # API: navigate to shortUrl
 # this call should redirect the user to www.google.com
 # for how to do that, check https://stackoverflow.com/questions/52308563/redirect-to-url-in-asp-net-core
-GET {{URL_shortener_HostAddress}}/navigate/ge123
+GET {{URL_shortener_HostAddress}}/navigate/1
 Accept: application/json
